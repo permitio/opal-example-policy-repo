@@ -1,4 +1,4 @@
-# Hello World
+# Hello World :)
 # -----------
 #
 # This example grants public HTTP access to "/", full access to "charlie", and

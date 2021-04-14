@@ -10,7 +10,7 @@ OPAL Example Policy Repo
 ### What's in this repo?
 This repo contain an example git repo containing a basic [OPA](https://www.openpolicyagent.org/docs/latest/) policy written in [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
-This repo is used in [OPAL](https://github.com/authorizon/opal)'s Getting Started [tutorial](https://github.com/authorizon/opal/blob/master/docs/index.md) to **demonstrate** how OPAL keeps your OPA agents in sync with policy and data changes. When commits are affecting this repo, the OPAL server will immediately push updates (over websockets pub/sub interface) to the connected OPAL clients, and they in turn will push the updated policy and data to OPA.
+This repo is used in [OPAL](https://github.com/authorizon/opal)'s Getting Started [tutorial](https://github.com/authorizon/opal/blob/master/docs/HOWTO/get_started_with_opal_using_docker.md) to **demonstrate** how OPAL keeps your OPA agents in sync with policy and data changes. When commits are affecting this repo, the OPAL server will immediately push updates (over websockets pub/sub interface) to the connected OPAL clients, and they in turn will push the updated policy and data to OPA.
 
 If you follow [the tutorial](https://github.com/authorizon/opal/blob/master/docs/HOWTO/get_started_with_opal_using_docker.md), you will see how this repo is used by OPAL in a real example running in docker-compose. The entire tutorial is also available as [video](https://asciinema.org/a/5IMzZRPltUiFdsNnZ81t14ERk?t=1).
 

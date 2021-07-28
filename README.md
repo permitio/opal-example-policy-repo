@@ -28,7 +28,7 @@ This repo has a very simple [RBAC policy](https://en.wikipedia.org/wiki/Role-bas
 OPA enables decoupling policy from code in your applications, and enables you to evolve your application and your authorization policies (i.e: "permissions logic") separately.
 
 #### Who uses OPA?
-Companies like [Netflix](https://www.youtube.com/watch?v=R6tUNpRpdnY) and [Pinterest](https://www.youtube.com/watch?v=LhgxFICWsA8) built their authorization layer using OPA.
+Companies like [Netflix](https://www.youtube.com/watch?v=R6tUNpRpdnY) and [Pinterest](https://www.youtube.com/watch?v=LhgxFICWsA8) built their authorization layer using OPA
 
 ### About OPAL (Open Policy Administration Layer)
 [OPAL](https://github.com/authorizon/opal) is an administration layer for Open Policy Agent (OPA), detecting changes to both policy and policy data in realtime and pushing live updates to your agents.

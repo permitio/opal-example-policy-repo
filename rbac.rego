@@ -18,6 +18,7 @@
 #	* Rego Iteration: https://www.openpolicyagent.org/docs/latest/#iteration
 
 package app.rbac
+import data.utils
 
 # By default, deny requests.
 default allow = false
@@ -25,6 +26,15 @@ default allow = false
 # Allow admins to do anything.
 allow {
 	user_is_admin
+}
+
+# you can ignore this rule, it's simply here to create a dependency
+# to another rego policy file, so we can demonstate how to work with
+# an explicit manifest file (force order of policy loading).
+allow {
+	input.matching_policy.grants
+	input.roles
+	utils.hasPermission(input.matching_policy.grants, input.roles)
 }
 
 # Allow the action if the user is granted permission to perform the action.

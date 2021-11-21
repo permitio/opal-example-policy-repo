@@ -57,10 +57,6 @@
       {
         "action": "update",
         "type": "cat"
-      },
-      {
-        "action": "adopt",
-        "type": "cat"
       }
     ],
     "billing": [

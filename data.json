@@ -15,7 +15,7 @@
       }
     },
      "sunil": {
-      "roles": ["employee", "billing"],
+      "roles": ["guest"],
       "location": {
         "country": "US",
         "ip": "8.8.8.8"
@@ -75,6 +75,16 @@
         "action": "update",
         "type": "finance"
       }
+    ],
+    "guest": [
+     {
+       "action": "read",
+       "type": "cat"
+     },
+     {
+       "action": "read",
+       "type": "finance"
+     }
     ]
   }
 }

@@ -76,6 +76,16 @@ user_is_viewer {
 	data.users[input.user].roles[i] == "viewer"
 }
 
+# user_is_guest is true if...
+user_is_guest {
+	# for some `i`...
+	some i
+
+	# "guest" is the `i`-th element in the user->role mappings for the identified user.
+	data.users[input.user].roles[i] == "guest"
+}
+
+
 # user_is_granted is a set of permissions for the user identified in the request.
 # The `permission` will be contained if the set `user_is_granted` for every...
 user_is_granted[permission] {

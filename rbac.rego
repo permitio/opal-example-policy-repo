@@ -22,7 +22,7 @@ package app.rbac
 # import data.utils
 
 # By default, deny requests
-default allow = true
+default allow = false
 
 # Allow admins to do anything
 allow {

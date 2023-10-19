@@ -8,7 +8,7 @@
       }
     },
     "bob": {
-      "roles": ["employee", "billing"],
+      "roles": ["employee"],
       "location": {
         "country": "US",
         "ip": "8.8.8.8"

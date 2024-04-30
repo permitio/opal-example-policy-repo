@@ -55,7 +55,7 @@ allow {
 
 	# unless user location is outside US
 	country := data.users[input.user].location.country
-	country == "US"
+	country == "IL"
 }
 
 # user_is_admin is true if...

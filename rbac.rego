@@ -25,26 +25,26 @@ package app.rbac
 default allow = false
 
 # Allow admins to do anything
-allow {
+allow if {
 	user_is_admin
 }
 
 # Allow bob to do anything
-#allow {
+#allow if {
 #	input.user == "bob"
 #}
 
 # you can ignore this rule, it's simply here to create a dependency
 # to another rego policy file, so we can demonstate how to work with
 # an explicit manifest file (force order of policy loading).
-#allow {
+#allow if {
 #	input.matching_policy.grants
 #	input.roles
 #	utils.hasPermission(input.matching_policy.grants, input.roles)
 #}
 
 # Allow the action if the user is granted permission to perform the action.
-allow {
+allow if {
 	# Find permissions for the user.
 	some permission
 	user_is_granted[permission]
@@ -59,7 +59,7 @@ allow {
 }
 
 # user_is_admin is true if...
-user_is_admin {
+user_is_admin if {
 	# for some `i`...
 	some i
 
@@ -68,7 +68,7 @@ user_is_admin {
 }
 
 # user_is_viewer is true if...
-user_is_viewer {
+user_is_viewer if {
 	# for some `i`...
 	some i
 
@@ -77,7 +77,7 @@ user_is_viewer {
 }
 
 # user_is_guest is true if...
-user_is_guest {
+user_is_guest if {
 	# for some `i`...
 	some i
 
@@ -88,7 +88,7 @@ user_is_guest {
 
 # user_is_granted is a set of permissions for the user identified in the request.
 # The `permission` will be contained if the set `user_is_granted` for every...
-user_is_granted[permission] {
+user_is_granted[permission] if {
 	some i, j
 
 	# `role` assigned an element of the user_roles for this user...

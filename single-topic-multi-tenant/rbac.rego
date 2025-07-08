@@ -2,7 +2,7 @@
 # Single-Topic Multi-Tenant Architecture Example
 # Compatible with older OPA versions (no "if" statements)
 
-package rbac
+package multi_tenant_rbac
 
 import data.acl
 
@@ -44,4 +44,3 @@ user_is_admin {
     admin_role := user_data.roles[_]
     admin_role == "admin"
 }
-

@@ -17,24 +17,21 @@ allow {
 # Allow users based on role permissions
 allow {
     # Find tenant data for this request
-    some tenant_id
-    tenant_data := acl[tenant_id]
+    tenant_data := acl[_]
     
     # Check if user exists in tenant data
     user_data := tenant_data.users[input.user]
     
     # Get user's roles from tenant data
-    some role
-    role := user_data.roles[_]
+    user_role := user_data.roles[_]
     
     # Get permissions for this role from tenant data
-    permissions := tenant_data.role_permissions[role]
+    permissions := tenant_data.role_permissions[user_role]
     
     # Check if role has permission for this action/resource
-    some permission
-    permission := permissions[_]
-    permission.action == input.action
-    permission.resource == input.resource
+    user_permission := permissions[_]
+    user_permission.action == input.action
+    user_permission.resource == input.resource
     
     # Check location restriction (OPAL example compatibility)
     user_data.location == "US"
@@ -42,10 +39,9 @@ allow {
 
 # Helper rule to check if user is admin
 user_is_admin {
-    some tenant_id
-    tenant_data := acl[tenant_id]
+    tenant_data := acl[_]
     user_data := tenant_data.users[input.user]
-    some role
-    role := user_data.roles[_]
-    role == "admin"
-} 
+    admin_role := user_data.roles[_]
+    admin_role == "admin"
+}
+

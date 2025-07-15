@@ -1,0 +1,44 @@
+{
+  "acl": {
+    "demo": {
+      "users": {
+        "alice": {
+          "roles": ["admin"],
+          "location": "US"
+        },
+        "bob": {
+          "roles": ["editor"],
+          "location": "US"
+        },
+        "charlie": {
+          "roles": ["viewer"],
+          "location": "US"
+        }
+      },
+      "role_permissions": {
+        "admin": [
+          {
+            "action": "*",
+            "resource": "*"
+          }
+        ],
+        "editor": [
+          {
+            "action": "read",
+            "resource": "documents"
+          },
+          {
+            "action": "edit",
+            "resource": "documents"
+          }
+        ],
+        "viewer": [
+          {
+            "action": "read",
+            "resource": "documents"
+          }
+        ]
+      }
+    }
+  }
+} 

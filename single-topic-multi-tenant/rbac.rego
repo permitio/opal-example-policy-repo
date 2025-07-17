@@ -1,6 +1,7 @@
 # Multi-Tenant Role-based Access Control (RBAC)
 # Single-Topic Multi-Tenant Architecture Example
 # Compatible with older OPA versions (no "if" statements)
+# USES EXPLICIT TENANT_ID for production security
 
 package multi_tenant_rbac
 
@@ -14,12 +15,15 @@ allow {
     user_is_admin
 }
 
-# Allow users based on role permissions
+# Allow users based on role permissions with explicit tenant_id
 allow {
-    # Find tenant data for this request
-    tenant_data := acl[_]
+    # Ensure tenant_id is provided in input
+    input.tenant_id
     
-    # Check if user exists in tenant data
+    # Get tenant data using explicit tenant_id (secure and performant)
+    tenant_data := acl[input.tenant_id]
+    
+    # Check if user exists in this specific tenant
     user_data := tenant_data.users[input.user]
     
     # Get user's roles from tenant data
@@ -37,10 +41,16 @@ allow {
     user_data.location == "US"
 }
 
-# Helper rule to check if user is admin
+# Helper rule to check if user is admin with explicit tenant_id
 user_is_admin {
-    tenant_data := acl[_]
+    # Ensure tenant_id is provided
+    input.tenant_id
+    
+    # Get tenant data using explicit tenant_id
+    tenant_data := acl[input.tenant_id]
+    
+    # Check if user exists and has admin role
     user_data := tenant_data.users[input.user]
     admin_role := user_data.roles[_]
     admin_role == "admin"
-}
+} 

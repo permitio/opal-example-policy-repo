@@ -53,4 +53,4 @@ user_is_admin {
     user_data := tenant_data.users[input.user]
     admin_role := user_data.roles[_]
     admin_role == "admin"
-}
+} 
